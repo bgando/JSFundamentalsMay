@@ -3,20 +3,40 @@ Welcome to JS Fundamentals: Objects, Array and Functions
 wifi: hackreactor
 pw: awesomebullets
 
-Teachers: Bianca and Monthy
-Lead Mentors: Jeff and Spencer
-TAs: Xian, Aaron, Drew
+var who = { 'Teachers': ['Bianca', 'Illy'],
+'Lead Mentors': ['Jeff', 'Spencer'],
+'TAs': ['Xian Hui', 'Aaron', 'Drew'] }
 
 Bathrooms: past the kitchen on the left
+
+
+Meet your neighbors!
+
+
+
+
+
+
+
+
+
 
 =================================================
 
 Setup 
 
-1. Download Github Repo
-2. Download Text Editor (sublime recommended)
+1. Download Github Repo: 
+
+'https://github.com/bgando/JSFundamentalsMay'
+
+2. Download Text Editor 
+'http://www.sublimetext.com/'
+
+3. Download Chrome 
+
 3. Running a js file in your browser
-4. Using the console
+
+4. Using the chrome console
 
 
 
