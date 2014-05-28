@@ -9,33 +9,14 @@ TAs: Xian, Aaron, Drew
 
 Bathrooms: past the kitchen on the left
 
-Eat snacks and meet your neighbors :)
-
-
-
-
-
-
-
-
-
-
-
-
 =================================================
 
 Setup 
 
 1. Download Github Repo
-www.github.com/bgando/JSFundamentalsMay
 2. Download Text Editor (sublime recommended)
-3. Download Chrome
-
-4. Running a js file in your browser
-5. Using the Chrome Dev Tools console
-
-
-
+3. Running a js file in your browser
+4. Using the console
 
 
 
@@ -61,70 +42,21 @@ LECTURE 1
 
 //Warmup (5 mins)
 
-//create an array named recipe and add the steps, 
-//in order to make your favorite
+//create an array named recipe and add the steps, in order to make your favorite
 //food. Use different methods to do so.
-
-
-var recipe = ['','','leave in egg for 10minutes'];
-recipe.push('boil water');
-recipe[1] = 'place in an egg';
-
-
-
-
-
-
-
-
-
-
 =================================================
-
-
 
 
 //data structures
 =================================================
 var simpleDataStructures = ['arrays', 'objects'];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // similarities
 =================================================
 0. Both Arrays and Objects are Objects // interesting
 1. Both are what we call in computer sciences "associative arrays"
-2. Which means they are just *a bucket that hold name-value pairs* 
-// also called key-value
+2. Which means they are just *a bucket that hold name-value pairs* // also called key-value
 3. Each name-value pair is a property (property name and property value)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //what's the difference??
@@ -134,93 +66,15 @@ var simpleDataStructures = ['arrays', 'objects'];
 3. Arrays are ordered with numbers
 4. Arrays have a length property
 
-
-recipe.length;
-
-// make an empty cookbook object
-cookbook.length;
-
-
-
-
-
-
-
-
-
-
-
-
-
 //how to add values and indices to arrays
 =================================================
 var addValues = ['bracket-notation', 'bracket-notation with variable'];
-
-//bracket notation
-var arr = [];
-arr[0] = "boil water";
-//bracket notation with a variable
-var one = 1;
-arr[one] = "put in noodles";
-
-
-
-
-
-
-
-
-
-
-
-
-
 var otherWaysToAdd =['dot-notation', 'native methods', 'lengthproperty'];
-
-//using push to put an element at the end
-arr.push('more recipe stuff');
-//access the last element
-arr[arr.length-1];
-//unshift puts an element at the beginning
-arr.unshift('take it off the stove!');
-
-
-
-
-
-
-
-
-
-
 
 //how to access values and indices in an array
 =================================================
 var accessValues = ['bracket-notation', 'bracket-notation with variable'];
-var firstIndex = arr[0];
-var i = 1;
-var secondIndex = arr[i];
-
-
 var otherWaysToAccess =['dot-notation', 'native methods', 'length property'];
-
-arr.pop();
-arr.shift();
-arr[arr.length-arr.length];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //access the first step of your recipe using bracket notation. 
 =================================================
@@ -231,24 +85,15 @@ arr[arr.length-arr.length];
 //access the second to last step of your recipe.
 =================================================
 
-//add the 'enjoy' step using a native method (add it to the end)
-
-=================================================
-// remove the enjoy method from the end of your array using a native method
-
-
-
-
-
-
-
-
-LECTURE 2
 
 //how to add values to objects
 =================================================
 var addProperties = ['bracket-notation', 'dot-notation', 'bracket-notation with variable'];
 var otherWaysToAddProperties = [];
+
+
+LECTURE 2
+
 What is property assignment?
 
 //how to access values and properties to objects
@@ -263,26 +108,55 @@ var myObj = { one: 1, two: 2, three: 3};
 myObj['two'] => ??
 myObj[one] => ?? //what does no quotes mean?
 
-//create an object called myObj (any name is OK)
-//add some properties and values using bracket notation
-//add properties using dot notation
-//lookup a property in 3 ways:
-// - bracket notation
-// - dot notation
-// - with a variable
-
-
 //You can't use dot notation with variables or special characters
 =================================================
 var myOtherObj = { loves : 'candy', likes: 'fries' }
 var likes = 'loves';
 
 myOtherObj['likes']; => ??
-myOtherObj[likes] => ??
+myOtherObj.likes => ??
 
 What about weird symbols in property names?
 
+
+//create an object called myCatInfo
+//add some properties and values using bracket notation
 =================================================
+
+//now recreate myCatInfo using dot notation (do not copy/paste!)
+=================================================
+
+//some weird things
+=================================================
+Since arrays are objects...
+
+Property + Index stringification with brackets
+
+var obj = {
+	x: 9,
+	0: 'cat'
+};
+
+obj[('x').toString()] = 9;
+obj[( 0 ).toString()] = 'cat';
+log(obj[('x').toString()]);//logs 9
+log(obj[( 0 ).toString()]);//logs 'cat'
+for(var k in obj){
+  log(k); // logs 'x', '0' 
+}
+
+//What is an object/array literal?
+=================================================
+var obj1 = {};
+obj['x']       = 9;
+obj['~/ [."4'] = 'cat';
+
+var obj2 = {
+    'x'        : 9,
+    '~/ [."4'  : 'cat'
+};
+
+obj1 === obj2; => ??
 
 
 
@@ -294,153 +168,17 @@ Arrays, use for loop with semi-colons
 
 var arr = ['a','b','c','d'];
 
-for (var pickles = arr.length - 1; pickles >= 0; pickles--){
-  console.log(arr[pickles]); //why don't we need quotes??
+for (var i = 0; i < arr.length; i++){
+  console.log(arr[i]); //why don't we need quotes??
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Objects, use for in loop
 
-var obj = {hello: 'goodbye', 
-  up : 'down', 
-  blue : 'red', 
-  'weird-symbol': 'need quotes',
-  'pickles': true};
+var obj = {hello: 'goodbye', up : 'down', blue : 'red', 'weird-symbol': 'need quotes'}
 
 for(var key in obj) {
-  //console.log(obj[key]); //why don't we need quotes??
-  console.log(key)
+  console.log(obj[key]); //why don't we need quotes??
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Let's search arr for 'c'
-=================================================
-var arr = ['a', 'b', 'c', 'd'];
-//Let's search obj for the value 'red'
-=================================================
-var obj = {'name': 'cirlce', 'color': 'red', 'pickles': true, 'hello':'Hola'};
-//Let's search obj for the property 'hello'
-=================================================
-
-
-//"Loop through the array FAMOUS and console.log ONLY when it gets
-//to ashton kutcher, and mila kunis";
-
-var famous = ['alex smith', 'amy whinehouse', 
-'cameron diaz', 'brad pitt', 'ashton kutcher', 'mark whalberg',
-'morgan freeman', 'mila kunis'];
-=================================================
-
-
-for(var i = 0; i < famous.length; i++){
-  if(famous[i] === 'ashton kutcher' || famous[i] === 'mila kunis'){
-    console.log('FAMOUS!', famous[i]);
-  }
-}
-
-//"Loop through the object POLITICAL and console.log first the
-//VALUE then the KEY";
-
-var political = {'secretary of state': 'hillary clinton',
- potus: 'barack obama', flotus: 'michelle obama', 'vice prez': 'joe biden'
- governerOfCalifornia: 'jerry brown'};
-=================================================
-
-
-//"Loop through the political object and add the values to the famous array"
-=================================================
-
-
-//"Take the array digits and place each value into an empty object where
-//The object keys the digits and the values 
-//of the object are digit * 2"
-
-//example: 
-
-var digits = [0, 1, 2, 3, 4, 5]
-var newDigits = {} ======> {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10};
-=================================================
-
-//'Loop through the array scramble and through each iteration take out 
-//the FIRST and LAST value, and store it into the lovepoem array. then
-//turn the values in the lovepoem array into a string.'
-
-var scramble: ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
-,'love', 'and', 'is', 'blue', 'violets', 'are']
-var lovepoem = [];
-=================================================
-//Nested Arrays and Objects
-
-
-
-
-
-
-var pets = [
-  {type: 'dog', name: 'peppy', eats: 'anything', sounds: ['yelp', 'woof', 'arf']}, 
-  {type: 'cat', name: 'edgar', eats: 'mice'},
-  {type: 'rabbit', name: 'hopper', eats: 'my garden'}
-  ];
-
-var pet = [
-  {"eats": "my garden"}
-  ];
-
-//Print out 'my garden'
-  pet[0]['eats'];
-
-  pets[0].sounds[2];
-
-
-  pets[0]['name'];
-  pets[0].sounds[1];
-  var x = 'name';
-  pets[0][x];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//How do you access properties and values in a nested array?
-=================================================
 
 //Since arrays are objects...
 =================================================
@@ -468,39 +206,58 @@ JavaScript hides certain built-in properties away when it's clear that
 you won't want to visit them in for-in loops. Properties like length that have this 
 behavior are said to be unenumerable.
 
-
-Since arrays are objects...
-
-Property + Index stringification with brackets
-
-var obj = {
-  x: 9,
-  0: 'cat'
-};
-
-obj['x'];
-arr['0']
-
-obj[('x').toString()] = 9;
-obj[( 0 ).toString()] = 'cat';
-log(obj[('x').toString()]);//logs 9
-log(obj[( 0 ).toString()]);//logs 'cat'
-for(var k in obj){
-  log(k); // logs 'x', '0' 
-}
-
-//What is an object/array literal?
+//Let's search arr for 'c'
 =================================================
-var obj1 = {};
-obj['x']       = 9;
-obj['~/ [."4'] = 'cat';
 
-var obj2 = {
-    'x'        : 9,
-    '~/ [."4'  : 'cat'
-};
+//Let's search obj for the value 'red'
+=================================================
 
-obj1 === obj2; => ??
+//Let's search obj for the property 'hello'
+=================================================
+
+
+//"Loop through the array FAMOUS and console.log ONLY when it gets
+//to ashton kutcher, and mila kunis";
+
+var famous = ['alex smith', 'amy whinehouse', 
+'cameron diaz', 'brad pitt', 'ashton kutcher', 'mark whalberg',
+'morgan freeman', 'mila kunis'];
+=================================================
+
+
+//"Loop through the object POLITICAL and console.log first the
+//VALUE then the KEY";
+
+var political = {secretary of state: 'hillary clinton',
+ potus: 'barack obama', flotus: 'michelle obama', vice prez: 'joe biden'
+ governerOfCalifornia: 'jerry brown'};
+=================================================
+
+
+//"Loop through the political object and add the values to the famous array"
+=================================================
+
+
+//"Take the array digits and place each value into an empty object where
+//The object keys the digits and the values 
+//of the object are digit * 2"
+
+//example: 
+
+var digits = [0, 1, 2, 3, 4, 5]
+var newDigits = {} ======> {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10};
+=================================================
+
+//'Loop through the array scramble and through each iteration take out 
+//the FIRST and LAST value, and store it into the lovepoem array. then
+//turn the values in the lovepoem array into a string.'
+
+var scramble: ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
+,'love', 'and', 'is', 'blue', 'violets', 'are']
+var lovepoem = [];
+=================================================
+
+
 
 
 LECTURE 4
