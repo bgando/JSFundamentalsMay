@@ -289,6 +289,24 @@ and is stored as a property of that object
 
 var arrayMethods = ['push', 'pop', 'shift', 'unshift', 'join', 'slice', 'splice'];
 var arrayConstructorMethods = ['Array.isArray()'];
+
+//object related operators
+=================================================
+typeof obj;
+obj instanceof Object;
+
+//exercise: what is the output for the following? Fill in the output after the comment sign
+var obj = {};
+obj; //
+var arr = [];
+arr; //
+typeof obj; //
+obj instanceof Object; //
+typeof arr; //
+arr instanceof Object; //
+arr instanceof Array; //
+ 
+
 FURTHER READING:
 http://www.w3schools.com/jsref/jsref_obj_array.asp
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
