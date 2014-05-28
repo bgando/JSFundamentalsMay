@@ -1,0 +1,500 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Day 2 Project Outline</title>
+
+</head>
+<body>
+<h1>Day 2 Project Outline</h1>
+
+<ul>
+<li><p>Welcome!</p></li>
+<li><p><strong>Part One</strong> Building Our Data Structures</p>
+
+<ul>
+<li>Step 1: Create animal object</li>
+<li>Step 2: Create animals collection array</li>
+<li>Step 3: Create relationships between the animals in the collection</li>
+<li>Step 4: Review</li>
+</ul>
+</li>
+<li><p><strong>Part Two</strong> Accessing and Manipulating the Data</p>
+
+<ul>
+<li>Scenario 1: Profile Page</li>
+<li>Scenario 2: Browse</li>
+<li>Scenario 3: Search and Add Friends</li>
+<li>Scenario 4: Edit Profile</li>
+<li>Scenario 5: Edit Animal Collection</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>Welcome</h2>
+
+<p>We are glad to see you here at Day 2 of JavaScript Fundamentals. Today is a project day so we will be pairing up on the pairing machines.</p>
+
+<h4>What's the format of today's class?</h4>
+
+<p>Today we will be doing a quick review of what we covered in the previous class and then jumping into a project that directly applies what we learned.</p>
+
+<h4>What is the goal of the project that we will be working on today?</h4>
+
+<p>Today we will be implementing the logic of a match-making social networking app that addresses a niche market that has not been explored before: animals! That's right - we are making an OKCupid or eHarmony for the animal kingdom! This is a data-intensive app so I hope everyone is ready to create, access and manipulate complex data structures.</p>
+
+<h4>What will I need to do well in the class?</h4>
+
+<ul>
+<li>You should have some exposure to JavaScript syntax fundamentals, such as loops and control flow, objects and arrays. <strong>If you are relatively new to these concepts, please tell a TA quickly so we can take extra care in keep you on track during the exercises.</strong></li>
+<li>Some of the instructions are written with the assumption you're using <a href="www.google.com/chrome/">Google Chrome</a>. While you are welcome to use any browser you like, Chrome has some of the best dev tools available, and it's highly recommended you try it for the duration of this class.</li>
+<li>Any plain text editor will suffice for you to edit the exercise files. <a href="http://www.sublimetext.com/download">Sublime Text</a> is a good choice.</li>
+</ul>
+
+
+<h4>What if I finish an exercise with extra time?</h4>
+
+<p>If you finish one of the assignments ahead of schedule, your best bet is to research and reinforce any previous concepts you'd felt shakey on, since each lecture is designed to build on a firm understanding of the previous ones. If you feel strong in all the material you've covered already, talk to an instructor and we will find some extra credit for you.</p>
+
+<hr />
+<img src="http://cdn.arwrath.com/2/22280.gif"/>
+<h1>Day 2 Project Directions</h1>
+
+<h2>Before You Get Started</h2>
+
+<p>Explore the files in the <strong>Day2 Folder</strong>.</p>
+
+<p>You should find an <strong>index.html</strong> file which you should run in your browser.</p>
+
+<p>This is should be a blank document but will make all your javascript files available in the console so that you do not need to copy/paste every time.</p>
+
+<p>When you complete a section, feel free to comment out any console.logs so that you don't clutter up your console as you are testing your code.</p>
+
+<p>You should also find a part1.js file and a <strong>part2.js file</strong>. These are the files you will be coding in.</p>
+
+<hr />
+
+<h2>Part One: Data</h2>
+
+<p>In this section we will be setting up the data structures that we will be using throughout the project. We will be creating and nesting objects in arrays to reinforce concepts we learned in the previous lecture</p>
+
+<p><strong>You will be placing all your code into the part1.js file.</strong></p>
+
+<h3>Step 1: Create a single animal object</h3>
+
+<p>This object will be the model of what our animal data will look like.</p>
+
+<h5>Step 1A - Object</h5>
+
+<p>We are going to create an object to hold our data using all the different ways of adding properties and values to an object.</p>
+
+<ul>
+<li><input type="checkbox">Create a variable and name it animal, assign it an empty object</li>
+<li><input type="checkbox">Using dot notation, add a property called 'species' and assign it a value</li>
+<li><input type="checkbox">Using dot notation, ensure that your species property exists on animal</li>
+<li><input type="checkbox">Using bracket notation, add a property called tagline and give it a value</li>
+<li><input type="checkbox">Using brakcet notation, check and make sure that your property exists on the animal object</li>
+<li><input type="checkbox">Using either bracket or dot notation, add a property called noises and assign it the value null</li>
+<li><input type="checkbox">Inspect your handiwork! your object should look something like this:
+<code>{ species: 'duck', tagline: 'Afflack', noises: null }</code></li>
+</ul>
+
+
+<h5>Step 1B - Array</h5>
+
+<p>We are going to create an array and practice the different ways of adding values.</p>
+
+<ul>
+<li><input type="checkbox">Create a variable called noiseArray and assign it to an empty array.</li>
+<li><input type="checkbox">Using bracket notation, add a noise as a string that your animal makes to the noiseArray.</li>
+<li><input type="checkbox">Using a native array method, add another noise to the end of the noiseArray.</li>
+<li><input type="checkbox">Using a different method, add a noise to the beginning of the noiseArray.</li>
+<li><input type="checkbox">Using bracket notation again, add another noise to the end.</li>
+<li><input type="checkbox">What is the length of the noiseArray? Check it.</li>
+<li><input type="checkbox">What is the last index on the noiseArray? How is it different than the length?</li>
+<li><input type="checkbox">Inspect your handiwork! What does the array you just created look like?</li>
+</ul>
+
+<h5>Step 1C - Nest the Array in the Object</h5>
+
+<p>We are now going to put the noiseArray inside the animal object</p>
+
+<ul>
+<li><input type="checkbox">Create a variable called noizes and assign it the string 'noises'.</li>
+<li><input type="checkbox">Use the noizes variable with the animal object to access the value 'null'</li>
+<li><input type="checkbox">Now use the noizes variable with the noiseArray to replace the value null with your noiseArray.</li>
+<li><input type="checkbox"><p>inspect your data structure, it should look something like this:
+  <code>{ species: 'duck', tagline: 'Afflack', noises: ['quack', 'honk', 'sneeze', 'growl'] }</code></p></li>
+<li><input type="checkbox"><p>Congrats! You just made a nested data structure :)</p></li>
+</ul>
+
+
+<h5>Review</h5>
+
+<p>Let's go over some over-arching concepts:</p>
+
+<ul>
+<li><input type="checkbox">What are the different ways you can add properties and values to objects?</li>
+<li><input type="checkbox">What about arrays?</li>
+<li><input type="checkbox">What if you wanted to add a property to an object that had a weird symbol?</li>
+<li><input type="checkbox">What about if it is a variable, how does that change the syntax?</li>
+</ul>
+
+<img src="http://derekerdman.com/lup/paintings/8/take_a_break.jpg"/>
+<hr />
+
+<h3>Step 2: Create a collection of animals</h3>
+
+<p>We are now going to take our one animal and add it to an array to create a collection of animals.</p>
+
+<ul>
+<li><input type="checkbox">Create a variable called animals and set it equal to an empty array
+
+<ul>
+<li><input type="checkbox">Note that this variable is animals(plural) while the variable in step 1 is animal(singular)</li>
+</ul>
+</li>
+<li><input type="checkbox">Using any method you prefer, add your animal from step 1 to the animals array.</li>
+<li><input type="checkbox"><p>Create a variable called quackers and assign it to the example object that I created above:</p>
+
+<ul>
+<li><input type="checkbox"><code>{ species: 'duck', tagline: 'Afflack', noises: ['quack', 'honk', 'sneeze', 'growl'] }</code></li>
+</ul>
+</li>
+<li><input type="checkbox"><p>Add quackers to the animal array using a different method than before.</p></li>
+<li><input type="checkbox">Inspect your animals array to ensure you have two objects inside.</li>
+<li><input type="checkbox">Create two more animal objects with these properties and values you create:
+
+<ul>
+<li><input type="checkbox">species (with a string value)</li>
+<li><input type="checkbox">tagline, (with a string value)</li>
+<li><input type="checkbox">noises (with an array of values)</li>
+</ul>
+</li>
+<li><input type="checkbox">Check the length property of your array. It should give you 4</li>
+</ul>
+
+
+<hr />
+
+<h3>Step 3: Create relationships between animals</h3>
+
+<p>Let's think about the best data structure to represent a relationship between two animals in our collection. Imagine that our app has a 'friendslist' on their profile where it lists out all of their friends. What do you think is the best way to represent this? Would you use an array or an object or some combination of both? Let's walk through the process together</p>
+
+<h5>3a: Create a Friendslist</h5>
+
+<ul>
+<li><input type="checkbox">Choose a data structure for the list of friends.</li>
+<li><input type="checkbox">Justify your decision.</li>
+<li><input type="checkbox">Create a variable called friends and assign it to the empty data structure.</li>
+<li><input type="checkbox">Using your animals array, add two species to the friends data structure.
+
+<ul>
+<li><input type="checkbox">ensure that you are just putting the species name, not the entire object</li>
+<li><input type="checkbox">be careful not to use a destructive method like pop() that will remove the whole value from the animals array.</li>
+</ul>
+</li>
+<li><input type="checkbox">Inspect your friends data structure. What does it look like?</li>
+</ul>
+
+
+<h5>3b Create a Relationships object</h5>
+
+<p>Imagine now that we have more than one kind of relationship in our app, we have friends and then we have romantic matches. Let's create an object to organize these different relationships!</p>
+
+<ul>
+<li><input type="checkbox">Create a variable called relationships assign it to an empty object.</li>
+<li><input type="checkbox">Add your friends data structure to the relationships object.</li>
+<li><input type="checkbox">Inspect your object. What is it's length?</li>
+<li><input type="checkbox">Create a variable called matches and assign it to an empty array.</li>
+<li><input type="checkbox">Add the matches array to the relationships object. It should look like this:
+
+<ul>
+<li><input type="checkbox"><code>relationships = { friends: ['duck', 'camel'], matches: []}</code></li>
+</ul>
+</li>
+<li><input type="checkbox">Using the relationships object, add some species to the matches array
+
+<ul>
+<li><input type="checkbox">hint: the mathes array is now nested inside the relationships object!</li>
+</ul>
+</li>
+<li><input type="checkbox">Inspect your object. Is the matches array now populated with some lucky species?</li>
+<li><input type="checkbox">Loop through your animals collection, adding the relationships object to each animal. Name the property relationships.
+
+<ul>
+<li><input type="checkbox">Note: it is ok that these are all the same relationship object.</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>Part Two: Accessing and Manipulating our Data</h2>
+
+<p>So we now have raw data for our app. Now we are going to go through some exercises in manipulating and accessing our data like you would if you were going create a real app with it. In the future, you could take the data that you are simply console.log()'ing and use jQuery to add it to your HTML. We are going to use our animals collection data that we created above for all the following exercises. Feel free to use these directions simply as guidelines and get creative with how you'd like your app to behave.</p>
+
+<p><strong>You will be placing all your code into the part2.js file.</strong></p>
+
+<h3>Scenario 1: Animal Profile Page</h3>
+
+<p>In our first scenario, we want to create a profile page for one of our animals. We will immulate this by console.log()'ing data we might want to find on a profile page. This would include the personal data as well as relationship data like who are their friends and who are their matches.</p>
+
+<h5>1a: Log the Animal Personal Data</h5>
+
+<ul>
+<li><input type="checkbox">Choose which animal you want for your profile page, select it from your animals collection and save it in a variable called profileAnimal.</li>
+<li><input type="checkbox">Loop through the properties of the animal, console.log the property name and if the property value is a string, also print that out. If the value is not a string, then just put a placeholder value of 'click here for data' (not actually a link)
+
+<ul>
+<li><input type="checkbox">'species: dog, tagline: who let the dogs out?, noises: click here for more data, relationships: click here for more data' etc</li>
+</ul>
+</li>
+<li><input type="checkbox">Adjust the previous loop so that it will loop through the noises array and print it out like this:
+
+<ul>
+<li><input type="checkbox">'species: dog, tagline: who let the dogs out?, noises: woof bark slurp , relationships: click here for more data'</li>
+</ul>
+</li>
+</ul>
+
+
+<h5>1a: Animal Relationship Data</h5>
+
+<ul>
+<li><input type="checkbox">Access the relationships object</li>
+<li><input type="checkbox">Log all the friends of the animal</li>
+<li><input type="checkbox">Now, log all the matches</li>
+<li><input type="checkbox">How would you delete a friend from your friendslist? Implement it!</li>
+</ul>
+
+<img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-take-a-break-43.png"/>
+
+<h3>Scenario 2: Browse Animals Page</h3>
+
+<p>In this scenario, we will show all the animals in our collection so that a user can browse through and see who is out there on our app. This page or the profile page might be the homepage of your application.</p>
+
+<h5>2a: Log the Animals in a List</h5>
+
+<ul>
+<li><input type="checkbox">Loop through the animals collection, console.log()'ing the species and tagline. Your result should be similar to this (without the bullet points)
+
+<ul>
+<li><input type="checkbox">'Dog: Who Let the Dogs out?'</li>
+<li><input type="checkbox">'Duck: Afflack!'</li>
+<li><input type="checkbox">'Fish: Blub Blub Blub'</li>
+</ul>
+</li>
+<li><input type="checkbox">Add a counter next to each animal, like an ordered list. It might look something like this:
+
+<ul>
+<li><input type="checkbox">'1. Dog: Who Let the Dogs out? 2. Duck: Afflack! 3. Fish: Blub Blub Blub'</li>
+</ul>
+</li>
+</ul>
+
+
+<h5>2b: Filter Animals (extra credit)</h5>
+
+<ul>
+<li><input type="checkbox">Choose your first animal (animals[0]) in your collection and pretend they are the signed-in user.</li>
+<li><input type="checkbox">Now filter the loop you created above to only show other animals that are not friends with the signed-in user.</li>
+</ul>
+
+
+<h3>Scenario 3: Search and Add Friends</h3>
+
+<p>All social networking sites have a search component so that you can find a particular user. You also need to be able to add friends and matches. Let's do these exercises and see what that might look like in code.</p>
+
+<ul>
+<li><input type="checkbox">Write a loop that goes through the animals collection and selects a particular species and logs its information.</li>
+<li><input type="checkbox">How would you change this to select a different species this time?</li>
+<li><input type="checkbox">Add a new friend to this animal that you 'searched' for.</li>
+<li><input type="checkbox">Add a new match to the same animal.</li>
+</ul>
+
+
+<h3>Scenario 4: Edit Animal Profile Page</h3>
+
+<p>What if you wanted to edit your profile page? Let's create the logic that goes into that!</p>
+
+<ul>
+<li><input type="checkbox">Choose one animal to be the 'logged-in user'</li>
+<li><input type="checkbox">Change their species to another species</li>
+<li><input type="checkbox">Change their noises to different noises that make sense for their new species.</li>
+<li><input type="checkbox">Add a new match to all of the animals in the animals array
+
+<ul>
+<li><input type="checkbox">It is ok if they are all the same one (maybe you are a dating site hacker trying to increase your chances for a date ;P )</li>
+</ul>
+</li>
+<li><input type="checkbox">What else might you want to change? Implement it!</li>
+</ul>
+
+
+<h3>Scenario 5: Edit Animal Collection Data</h3>
+
+<p>What if you wanted to change the data on the whole collection? For example, species doesn't really make sense since we are using it more like a name. This might be for the administrator of the website/database</p>
+
+<ul>
+<li><input type="checkbox">Change all the species properties be called name instead.</li>
+<li><input type="checkbox">What if we wanted to reset all the friendslists on all the animals? Implement it!</li>
+<li><input type="checkbox">What else might you want to change? Implement it!</li>
+</ul>
+
+</body>
+</html>
