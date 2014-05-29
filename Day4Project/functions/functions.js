@@ -10,7 +10,7 @@
         ACTUAL = null;
       });
 
-      it('a function has access to it\'s own local scope variables', function () {
+      it('a function has access to its own local scope variables', function () {
         var fn = function () {
           var name = 'inner';
           ACTUAL = name;
