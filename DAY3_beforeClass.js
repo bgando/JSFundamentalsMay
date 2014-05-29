@@ -8,7 +8,16 @@ funFunctions.intro = function() {
 			'Community Evangelist',
 			'JS Engineer'
 			]
-		}
+		};
+
+	var coTeacher = {
+		name: 'IB',
+		hackerName: 'Monthy Python',
+		info: [
+			'HR Cohort 15 admittee',
+			'JS Engineer at PayPal'
+		]
+	};
 
 	var lostandFound = email('frontdesk@hackreactor.com'),
 		wifi = {name: 'HackReactor', PW: 'awesomebullets'};
@@ -30,71 +39,28 @@ funFunctions['takeaways'] = function(){
 			''
 			'Scope:', 
 				'what is function scope',
-					'global', 'local', 'nesting' 
+					'global', 'local', 'nesting',
 				'what is closure scope', //TODO: tomorrow
 				'what is the module pattern', //TODO: tomorrow
 			'Higher Order Functions',
 				'what is a first class function',
-				'how to pass functions to other ‘,
-				functions to complete basic 
-				programming problems'
+				'how to pass functions to other',
+				'functions to complete basic', 
+				'programming problems'
 			];
 }
 
-// Functions quick review
-
-var add = function(a, b){
- 	return a + b;
-};
-add(3, 4, 5); // 7
-
-// this function has 2 named parameters
-// it is being called with 3 arguments
-// The function body references 2 arguments by name
-// The function does work on 2 arguments
 
 
-// 'arguments' keyword
-
-var add = function(a, b){
-	console.log(arguments); //logs [3,4,5]!
- 	return a + b;
-};
-add(3, 4, 5); // 7
+//Lecture 1: FUNCTIONS AS OBJECTS
+//Lecture 2: FUNCTION INVOCATION
+//Lecture 3: ANATOMY OF A FUNCTION
+//Lecture 4: SCOPE
 
 
-//Exercise: Take turns explaining to your partner the following:
-//parameters, 
-//arguments,
-//the difference between being called with x arguments vs doing work on x arguments
-
-//Function declaration
-function functionName(arg0, arg1, arg2){
-	// function body
-}
-
-//funciton declarations are ready before code executes
-//this is OK:
-sayHi();
-function sayHi(){
-	console.log("Hi");
-}
-
-//Function expression
-
-var functionName = function(arg0, arg1, arg2){
-	// function body
-}; // needs ";"
-
-//not read until the execution reaches the line
-sayBye(); //error - function doesn't exist yet
-var sayBye = function() {
-	console.log("Bye");
-};
-
-
+//Lecture 1
 //FUNCTIONS AS OBJECTS
-
+===================================================
 //What does it mean a function is an object
 var f = function() {};
 typeof f; 				// "function"
@@ -130,12 +96,16 @@ for (var key in fun) {
 	console.log(i); // logs 'x', '0', '1'
 }
 
+
+//Exercises:
+//Practice putting properties onto functions using dot and bracket notation.
+//Now try looping through the properties.
 //Two types of loops on functions objects
 //How would they behave?
 //Which one would you use?
 
 //FUNCTION INVOCATION
-
+===================================================
 //How are functions different from objects?
 
 fun();
@@ -146,9 +116,13 @@ fun();
 var fun = function() { console.log('2'); };
 var res = fun(); // what is the value of res?
 
+//Using return statement
 var fun = function() { return 2; };
-var two = fun();
+//Nothing happens until it's called.
 
+//Now the variable 'two' will store 2
+var fun = function() { return 2; }();
+var two = fun();
 
 
 function fun() {
@@ -161,11 +135,169 @@ function fun() {
 //invoking a nameless function
 var two = function() { return 2; }(); //trailing invocation parens
 
-//immediate invocation is unusual because the function itself will be discarded and only the result will remain
+var fun = function(){         };
 
 
-//NUANCES
-//aka common mistakes
+fun['x'] = 9;
+fun[ 0 ] = 'cat', fun[1] = 'dog';
+log(fun['x']); // logs 9
+log(fun[ 0 ]); // logs 'cat'
+for(var k in fun){
+  log(k); // logs 'x', '0', '1'
+}
+
+
+var res = fun();
+log(res); // logs undefined
+
+
+
+
+
+
+
+var fun = function(){ return 2; };
+
+
+fun['x'] = 9;
+fun[ 0 ] = 'cat', fun[1] = 'dog';
+log(fun['x']); // logs 9
+log(fun[ 0 ]); // logs 'cat'
+for(var k in fun){
+  log(k); // logs 'x', '0', '1'
+}
+
+
+var two = fun();
+log(two); // logs 2
+
+
+
+
+
+
+
+
+
+var fun = function(input){
+  log(input.toUpperCase());
+};
+
+
+
+
+
+
+
+
+
+fun('hi');    // logs  'HI'
+log(input);
+
+
+
+
+
+
+
+
+
+
+
+log(fun.input);
+
+
+//BREAK
+
+
+
+
+
+
+
+//Lecture 3: ANATOMY OF A FUNCTION
+
+
+
+Declaration/Definition
+
+Function name
+
+Parameters
+
+Function Body
+
+Inovacation/Call-time
+
+Arguments
+
+
+
+
+// Functions quick review
+
+var add = function(a, b){
+ 	return a + b;
+};
+add(3, 4, 5); // 7
+
+// this function has 2 named parameters
+// it is being called with 3 arguments
+// The function body references 2 arguments by name
+// The function does work on 2 arguments
+
+
+// 'arguments' keyword
+
+var add = function(a, b){
+	console.log(arguments); //logs [3,4,5]!
+ 	return a + b;
+};
+add(3, 4, 5); // 7
+
+//Exercise: Take turns explaining to your partner the following:
+//parameters, 
+//arguments,
+//the difference between being called with x arguments vs doing work on x arguments
+
+//Create a square function that return the square of a number.
+
+//Try the following in your console:
+function functionName(arg0, arg1, arg2){
+	// function body
+}
+//funciton declarations are ready before code executes
+//this is OK:
+sayHi();
+function sayHi(){
+	console.log("Hi");
+}
+
+var functionName = function(arg0, arg1, arg2){
+	// function body
+}; // needs ";"
+
+//Function expressions not read until the execution reaches the line
+sayBye(); //error - function doesn't exist yet
+var sayBye = function() {
+	console.log("Bye");
+};
+
+//Lecture 4
+//Scope - see slides
+
+//Global Scope
+
+//Local Scope
+
+//Parent vs Child Scope
+
+//Function scope precedence
+
+//Block Scope
+
+//Function Scope exercises
+
 
 //******************************
 // Time and audience permitting
