@@ -98,7 +98,7 @@ Write the following helper functions as a warm-up. You may use some or all of th
 
 - `objValuePrinter` loops through all the properties in any object and returns a string of all the values that are strings.
 	- example input: `{ species: 'duck', tagline: 'Afflac', noises: ['quack', 'honk', 'sneeze', 'growl'] }` 
-	- example output: `"duck tagline"` 
+	- example output: `"duck Afflac"` 
 	
 	
 - `arrValuePrinter` takes any array and returns the values as a string 
