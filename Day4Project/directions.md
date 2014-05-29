@@ -48,7 +48,7 @@ The **functions.js** folder holds all the tests and you will be editing this fil
 
 A test block starts with an `it` function. The `it` function takes two arguments. The first one is a statement describing the rule addressed by the test. The second is a function that will either evaluate to true or false. The expect statement (`expect(ACTUAL === 'inner').to.be.true;`) will evaluate if the statement between the parens `ACTUAL === 'inner'` is true. You can almost read it like plain English. The expect statement below "expects that the variable ACTUAL equals the value 'inner' to be true".
 
-      it('a function has access to it\'s own local scope variables', 
+      it('a function has access to its own local scope variables', 
       
       function () {
         var fn = function () {
