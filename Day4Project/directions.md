@@ -11,6 +11,7 @@
   - Scenario 3: Search and Add Friends
   - Scenario 4: Edit Profile
   - Scenario 5: Edit Animal Collection 
+  - Using Underscore.js
 
 ---
 
@@ -48,7 +49,7 @@ The **functions.js** folder holds all the tests and you will be editing this fil
 
 A test block starts with an `it` function. The `it` function takes two arguments. The first one is a statement describing the rule addressed by the test. The second is a function that will either evaluate to true or false. The expect statement (`expect(ACTUAL === 'inner').to.be.true;`) will evaluate if the statement between the parens `ACTUAL === 'inner'` is true. You can almost read it like plain English. The expect statement below "expects that the variable ACTUAL equals the value 'inner' to be true".
 
-      it('a function has access to it\'s own local scope variables', 
+      it('a function has access to its own local scope variables', 
       
       function () {
         var fn = function () {
@@ -116,6 +117,10 @@ Write the following helper functions as a warm-up. You may use some or all of th
 - `strCapitalizer` takes a string, capitalizes the first letter of each word, and returns the string.
  	- example input: `"my name is bristol"` 
 	- example output: `"My Name Is Bristol"`
+- `unique` takes an array, removes any duplicate values and returns the array.
+	- input: `[1,2,3,3,4]` 
+	- output: `[1,2,3,4]`
+- `extend` takes two objects and copies the properties of the first object on to the second. It does not return anything. 
 
 ### Scenario 1: Animal Profile Page
 In our first scenario, we want to create a profile page for one of our animals. We will create functions that will help organize our data and present it to the user in a human-readable way.
@@ -134,7 +139,7 @@ In our first scenario, we want to create a profile page for one of our animals. 
 	- `"species: duck, tagline: Afflac, noises: quack, honk, sneeze, growl"` 
 
   
-##### 1a: Animal Relationship Data
+##### 1b: Animal Relationship Data
 - Create a function called `relationshipLogger` that takes an animal object and returns the relationship object if it contains one. Otherwise, have your function log `"You have no relationships :("` 
 
 - Write a function that takes two parameters, the species name and an animal object. The function returns the relationship between the species and animal. 
@@ -153,24 +158,40 @@ In this scenario, we will show all the animals in our collection so that a user 
 ### Scenario 3: Search and Add Friends
 All social networking sites have a search component so that you can find a particular user. You also need to be able to add friends and matches. Let's do these exercises and see what that might look like in code. 
 
-- Write a function that takes a seach query and returns an array of animal objects that contain an exact match anywhere in the body of the object. 
-	- Note: the match must be exact for this to work. 
-	- You will be searching through your animals collection
+- `search` takes a seach query and returns an array of animal objects that contain an exact match anywhere in the body of the object. 
+	- Note: the match must be exact for this to work and won't work with objects or arrays. Just primitive types (numbers, strings, booleans, etc.) 
+	- You will be searching through your entire animals collection
 - Extra credit: How can you make this work with any type of nested data structure? Assuming we might want to change the structure of our data in the future and won't want it to break our code.
+- Write a function that ensures that no friends in your friendslist are repeated. It might take an array and return that array without any duplicate entries.
 
 ### Scenario 4: Edit Animal Profile Page
 What if you wanted to edit your profile page? Let's create the logic that goes into that!
 
-- Choose one animal to be the 'logged-in user'
-- Change their species to another species
-- Change their noises to different noises that make sense for their new species.
-- Add a new match to all of the animals in the animals array
-  - It is ok if they are all the same one (maybe you are a dating site hacker trying to increase your chances for a date ;P ) 
-- What else might you want to change? Implement it!
+- Create a function that takes your animal object, the key you wish to change and the new value.
+	- if the the property doesn't yet exist, add it! 
+	
+
 
 ### Scenario 5: Edit Animal Collection Data
 What if you wanted to change the data on the whole collection? For example, species doesn't really make sense since we are using it more like a name. This might be for the administrator of the website/database
 
-- Change all the species properties be called name instead.
-- What if we wanted to reset all the friendslists on all the animals? Implement it!
-- What else might you want to change? Implement it!
+- Write a function that creates a new animal object and adds it to the animals collection. You might want to pass in the species values, friends, etc as arguments into your function. 
+	- How could the arugments keyword come in handy here?
+- `cleanseData` is a function that takes the animals collection and a series of key names. It will remove any properties on the animal objects that are not given as arguments
+	- input `cleansData([{'a': 'b', 'c': 'd'},{'a': 'q'}], 'a');`
+	- output `[{'a': 'b'},{'a': 'q'}]`
+	 
+
+###Using Underscore.js
+[Underscore.js](http://underscorejs.org/) is one of the most popular utility libraries. It provides a collection of helper methods to simplify your development. Rewrite your functions above to incorporate some underscore.js methods. You can use as many as you want! **[Read through the documentation](http://underscorejs.org/)** to familiarize yourself with what underscore.js can do. Here are some commonly used methods to get you started:
+
+- [where](http://underscorejs.org/#where) `_.where(list, properties) `
+	- Looks through each value in the list, returning an array of all the values that contain all of the key-value pairs listed in properties.
+	- What function above could you use this with?
+	
+- [each](http://underscorejs.org/#each) `_.each(list, iterator, [context])` Alias: forEach 
+	- Iterates over a list of elements, yielding each in turn to an iterator function. The iterator is bound to the context object, if one is passed. Each invocation of iterator is called with three arguments: (element, index, list). If list is a JavaScript object, iterator's arguments will be (value, key, list). Delegates to the native forEach function if it exists, and returns the original list for chaining.
+	- What helper function can we replace with each?
+	
+The underscore library is already loaded in your index.html file so you do not need to worry about that. Just get to coding!
+
