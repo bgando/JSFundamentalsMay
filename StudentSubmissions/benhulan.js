@@ -113,6 +113,25 @@ for (var i = 0; i < animals.length; i++) {
   animals[i].relationships.matches = ['turkey', 'chicken'];  // already done before scenario 5
 }
 
+/* for the next challenge I decided to use jQuery. My markup looks like this:
+<div id="content">
+            <section id="branding">
+              HeavyPettingZoo.com
+            </section>
+
+            <section id="profile">
+                <h1>Friends: </h1>
+<!--
+// Structure will be added dynamically:
+                <h2 class="species"></h2>
+                <h3 class="tagline"></h3>
+                <p class="noises"></p>
+-->
+                <p id="friends"></p>
+                <p id="matches"></p>
+            </section>
+        </div>
+*/
 $(document).ready(function() {
   for (var i = 0; i < animals.length; i++) {
     if (animals[i] != loggedIn) {
@@ -142,21 +161,31 @@ loggedIn.noises[0] = 'pirates arrrrrr wonderful!';
 //  }
 
 //  Helper Methods - DAY 4
+
+// `objKeyPrinter` loops through the properties of any object and returns a string of all the keys.
 var obj = {};
 var objKeyPrinter = function(obj){
+    var newString = '';
     for (var key in obj) {
-      console.log(key);
+      newString = newString + key + ' ';
     }
+    newString.trim();
+    console.log(newString);
 };
 
+// `objValuePrinter` loops through all the properties in a given object and returns a string of all the values that are strings.
 var objValuePrinter = function(obj){
+    var newString = '';
     for (var key in obj) {
       if (typeof obj[key] === 'string'){
-      console.log(obj[key]);
-      }
+      newString = newString + obj[key] + ' ';
     }
+  }
+  newString = newString.trim();
+  console.log(newString);
 };
 
+// `arrValuePrinter` takes a given array and returns the values as a string
 var arr = [];
 var arrValuePrinter = function(arr) {
     var myString = '';
@@ -167,7 +196,7 @@ var arrValuePrinter = function(arr) {
     console.log(myString);
 };
 
-// dataTypeChecker
+// `dataTypeChecker` takes either an array or an object and returns either `'array'` or `'object'` as appropriate.
 var dataType;
 var dataTypeChecker = function(dataType) {
   if (Array.isArray(dataType) === true) {
@@ -177,5 +206,45 @@ var dataTypeChecker = function(dataType) {
   }
 };
 
+// `capitalizeVals` takes an object, capitalizes the first letter of each string value in the object, and returns the object. Ignore any non-string values like arrays, numbers or objects.
+var objString = '';
+var capitalizeVals = function(objString) {
+    var newObjStr = '';
+      for (var key in objString) {
+          if (typeof objString[key] === 'string'){
+            newObjStr = (newObjStr + objString[key] + ' ');
+          }
+      }
+    newObjStr.trim();
+    console.log(newObjStr);
+};
 
+// `strCapitalizer` takes a string, capitalizes the first letter of each word, and returns the string.
+var str;
+var strCapitalizer = function(str) {
+      arr = str.split(' ');
+      str = '';
+      for (i = 0; i < arr.length; i++) {
+        str = (str + arr[i].charAt(0).toUpperCase() + arr[i].substr(1).toLowerCase() + ' ');
+      }
+    str.trim();
+    console.log(str);
+};
 
+// `unique` takes an array, removes any duplicate values and returns the array.
+var unique = function(arr) {
+  arr.sort();
+  var newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+     if (arr[i] !== arr[i-1]) {      
+             newArray.push(arr[i]);
+     }  
+  }
+  console.log(newArray);
+};
+
+// `extend` takes two objects and copies the properties of the first object on to the second. It does not return anything.
+var obj1, obj2 = {};
+var extend = function(obj1, obj2) {
+
+};
