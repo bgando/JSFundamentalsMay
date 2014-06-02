@@ -266,15 +266,19 @@ var welcomeMessage = function(obj) {
 };
 
 var profileData = function(obj) {
+  var temp = '';
   for (var key in obj) {
-    if (typeof obj[key] === 'string') {
-      var temp1 =  strCapitalizer(key);
-      var temp2 = strCapitalizer(obj[key]);
-      console.log(temp1 + ": " + temp2);
+    if (typeof obj[key] !== 'string') {
+        // console.log(key, ' is an array');
+        var arr = [obj[key]];
+        var temp3 = strCapitalizer(key) + ': ' + arrValuePrinter(arr) + ' ';
+        temp = temp + temp3 + ' ';
     }
     else {
-      console.log(key, ' not a string');
+      var temp1 =  strCapitalizer(key);
+      var temp2 = strCapitalizer(obj[key]);  
+      temp = temp + temp1 + ': ' + temp2 + ', ';
     }
   }
-
+      return temp.trim();
 };
