@@ -25,11 +25,86 @@ var objValuePrinter = function(animal) {
 };
 
 var dataTypeChecker = function(data) {
-  if (typeof data === "object") {
-    console.log ("object");
-  }
-  else if (typeof data)
+  if( Object.prototype.toString.call(data) === '[object Array]' ) {
+        console.log ("array");
 }
+
+
+  else if ( Object.prototype.toString.call(data) === '[object Object]' )
+  	console.log ("object");
+
+  else
+  	console.log ("Not an object or array");
+}
+
+var capitalizeVals = function(animal){
+  for (var i in animal) {
+  if (typeof animal[i] === ("string" || "number")) {
+    console.log(animal[i].charAt(0).toUpperCase() + animal[i].substring(1));}
+  };
+
+}
+
+
+
+var strCapitalizer = function(string){
+  if (typeof string === "string") {
+//console.log(string.replace(/\w\S*/g, function(txt){console.log(txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());}));
+return string.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+}
+    //console.log(string.charAt(0).toUpperCase() + string.substring(1));}
+  };
+ //else 
+ 	//console.log("not a string");
+//}
+
+
+var unique = function(a){
+	var isUnique = a[0];
+	var array = [isUnique];
+	//array[0] = isUnique;
+
+	for(var i = 0; i < a.length; i++)
+	{
+		if (isUnique != a[i]){
+			isUnique = a[i];
+		array.push(isUnique)
+		 		
+		}
+	}
+	console.log(array);
+	return(array);
+}	
+
+
+var extend = function(obj1, obj2){
+	  for (var i in obj1) {
+     obj2[i]=0;    
+  };
+  //console.log(obj2);
+};
+
+
+//1a
+var welcomeMessage = function (animal){
+
+		return ("Welcome, " + strCapitalizer(animal.species));
+	}
+
+//1b
+var profileData = function (animal) {
+
+for (var i in animal){
+if (i != 'noises')
+	{console.log(strCapitalizer(i)
+	 + ": " + 
+	 strCapitalizer(animal[i])+",");}
+};
+};
+
+//1c
+
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //DAY TWO
@@ -58,6 +133,12 @@ console.log(noiseArray);
 console.log(noiseArray.length);
 
 //NEST
+
+var noizes = animal.noise = noiseArray;
+
+console.log(noizes);
+console.log(animal);
+// will this and the one below both work??
 
 var noizes = "noises";
 animal[noizes];
