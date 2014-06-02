@@ -34,7 +34,7 @@ animals[3] = { species: 'ogre', tagline: 'Ogres are like onions', noises: ['burp
 var friends = [];
 // adding all animals to friends array
 for (var i = 0; i < animals.length; i++ ) {
-      friends.push(animals[i].species);e
+      friends.push(animals[i].species);
   };
 // console.log(friends);
 
