@@ -169,8 +169,7 @@ var objKeyPrinter = function(obj){
     for (var key in obj) {
       newString = newString + key + ' ';
     }
-    newString.trim();
-    console.log(newString);
+    return newString.trim();
 };
 
 // `objValuePrinter` loops through all the properties in a given object and returns a string of all the values that are strings.
@@ -182,7 +181,7 @@ var objValuePrinter = function(obj){
     }
   }
   newString = newString.trim();
-  console.log(newString);
+  return newString;
 };
 
 // `arrValuePrinter` takes a given array and returns the values as a string
@@ -193,16 +192,16 @@ var arrValuePrinter = function(arr) {
         myString += arr[i] + ' ';
     }
     myString = myString.trim();
-    console.log(myString);
+    return myString;
 };
 
 // `dataTypeChecker` takes either an array or an object and returns either `'array'` or `'object'` as appropriate.
 var dataType;
 var dataTypeChecker = function(dataType) {
   if (Array.isArray(dataType) === true) {
-      console.log('array');
+      return 'array';
       } else {
-      console.log('object');
+      return 'object';
   }
 };
 
@@ -215,8 +214,7 @@ var capitalizeVals = function(objString) {
             newObjStr = (newObjStr + objString[key] + ' ');
           }
       }
-    newObjStr.trim();
-    console.log(newObjStr);
+    return newObjStr.trim();
 };
 
 // `strCapitalizer` takes a string, capitalizes the first letter of each word, and returns the string.
@@ -227,8 +225,7 @@ var strCapitalizer = function(str) {
       for (i = 0; i < arr.length; i++) {
         str = (str + arr[i].charAt(0).toUpperCase() + arr[i].substr(1).toLowerCase() + ' ');
       }
-    str.trim();
-    console.log(str);
+    return str.trim();
 };
 
 // `unique` takes an array, removes any duplicate values and returns the array.
@@ -240,7 +237,7 @@ var unique = function(arr) {
              newArray.push(arr[i]);
      }  
   }
-  console.log(newArray);
+  return newArray;
 };
 
 // `extend` takes two objects and copies the properties of the first object on to the second. It does not return anything.
@@ -255,4 +252,29 @@ var extend = function(obj, obj2) {
       }
     }
   console.log(obj2);
+  return false;
+};
+
+
+// 1a Welcome logger
+var welcomeMessage = function(obj) {
+  for (var key in obj) {
+    if (obj[key] === loggedIn.species) {
+    return ('Welcome, ', strCapitalizer(obj[key]));
+    }
+  }
+};
+
+var profileData = function(obj) {
+  for (var key in obj) {
+    if (typeof obj[key] === 'string') {
+      var temp1 =  strCapitalizer(key);
+      var temp2 = strCapitalizer(obj[key]);
+      console.log(temp1 + ": " + temp2);
+    }
+    else {
+      console.log(key, ' not a string');
+    }
+  }
+
 };
