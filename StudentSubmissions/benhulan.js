@@ -34,7 +34,7 @@ animals[3] = { species: 'ogre', tagline: 'Ogres are like onions', noises: ['burp
 var friends = [];
 // adding all animals to friends array
 for (var i = 0; i < animals.length; i++ ) {
-      friends.push(animals[i].species);
+      friends.push(animals[i].species);e
   };
 // console.log(friends);
 
@@ -244,7 +244,15 @@ var unique = function(arr) {
 };
 
 // `extend` takes two objects and copies the properties of the first object on to the second. It does not return anything.
-var obj1, obj2 = {};
-var extend = function(obj1, obj2) {
-
+var obj2 = {};
+var extend = function(obj, obj2) {
+  for (var key in obj) {
+        if (typeof obj[key] === 'string') {
+        obj2[key] = "";
+      }
+        else {
+        obj2[key] = [];
+      }
+    }
+  console.log(obj2);
 };
