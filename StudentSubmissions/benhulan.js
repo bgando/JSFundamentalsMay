@@ -282,3 +282,14 @@ var profileData = function(obj) {
   }
       return temp.trim();
 };
+
+// 1b. Create a function called `relationshipLogger` that takes an animal object and returns the relationship object if it contains one.
+var relationshipLogger = function(obj) {
+    if ( 'relationships' in obj ) {
+      return obj.relationships;
+    }
+    else {
+      console.log("You have no relationships :(");
+        return;
+    }
+};
