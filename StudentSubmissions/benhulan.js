@@ -293,3 +293,23 @@ var relationshipLogger = function(obj) {
         return;
     }
 };
+
+// 1b - status checker
+
+var statusChecker = function(loggedIn, obj) {
+    for (var i = 0; i<obj.relationships.friends.length; i++) {
+      if ( loggedIn.species === obj.relationships.friends[i] ){
+        return loggedIn.species + ' is a friend of ' + obj.species;
+      }
+      else {
+          for (var x = 0; x<obj.relationships.matches.length; x++) {
+          if ( loggedIn.species === obj.relationships.matches[i] ){
+            return loggedIn.species + ' is a match of ' + obj.species;
+          }
+         else {
+           return loggedIn.species + ' and ' + obj.species + ' have no relation yet.';
+        }
+      }
+    }
+  }
+};
