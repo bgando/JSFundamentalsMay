@@ -113,6 +113,25 @@ for (var i = 0; i < animals.length; i++) {
   animals[i].relationships.matches = ['turkey', 'chicken'];  // already done before scenario 5
 }
 
+/* for the next challenge I decided to use jQuery. My markup looks like this:
+<div id="content">
+            <section id="branding">
+              HeavyPettingZoo.com
+            </section>
+
+            <section id="profile">
+                <h1>Friends: </h1>
+<!--
+// Structure will be added dynamically:
+                <h2 class="species"></h2>
+                <h3 class="tagline"></h3>
+                <p class="noises"></p>
+-->
+                <p id="friends"></p>
+                <p id="matches"></p>
+            </section>
+        </div>
+*/
 $(document).ready(function() {
   for (var i = 0; i < animals.length; i++) {
     if (animals[i] != loggedIn) {
@@ -142,21 +161,30 @@ loggedIn.noises[0] = 'pirates arrrrrr wonderful!';
 //  }
 
 //  Helper Methods - DAY 4
+
+// `objKeyPrinter` loops through the properties of any object and returns a string of all the keys.
 var obj = {};
 var objKeyPrinter = function(obj){
+    var newString = '';
     for (var key in obj) {
-      console.log(key);
+      newString = newString + key + ' ';
     }
+    return newString.trim();
 };
 
+// `objValuePrinter` loops through all the properties in a given object and returns a string of all the values that are strings.
 var objValuePrinter = function(obj){
+    var newString = '';
     for (var key in obj) {
       if (typeof obj[key] === 'string'){
-      console.log(obj[key]);
-      }
+      newString = newString + obj[key] + ' ';
     }
+  }
+  newString = newString.trim();
+  return newString;
 };
 
+// `arrValuePrinter` takes a given array and returns the values as a string
 var arr = [];
 var arrValuePrinter = function(arr) {
     var myString = '';
@@ -164,18 +192,124 @@ var arrValuePrinter = function(arr) {
         myString += arr[i] + ' ';
     }
     myString = myString.trim();
-    console.log(myString);
+    return myString;
 };
 
-// dataTypeChecker
+// `dataTypeChecker` takes either an array or an object and returns either `'array'` or `'object'` as appropriate.
 var dataType;
 var dataTypeChecker = function(dataType) {
   if (Array.isArray(dataType) === true) {
-      console.log('array');
+      return 'array';
       } else {
-      console.log('object');
+      return 'object';
   }
 };
 
+// `capitalizeVals` takes an object, capitalizes the first letter of each string value in the object, and returns the object. Ignore any non-string values like arrays, numbers or objects.
+var objString = '';
+var capitalizeVals = function(objString) {
+    var newObjStr = '';
+      for (var key in objString) {
+          if (typeof objString[key] === 'string'){
+            newObjStr = (newObjStr + objString[key] + ' ');
+          }
+      }
+    return newObjStr.trim();
+};
+
+// `strCapitalizer` takes a string, capitalizes the first letter of each word, and returns the string.
+var str;
+var strCapitalizer = function(str) {
+      arr = str.split(' ');
+      str = '';
+      for (i = 0; i < arr.length; i++) {
+        str = (str + arr[i].charAt(0).toUpperCase() + arr[i].substr(1).toLowerCase() + ' ');
+      }
+    return str.trim();
+};
+
+// `unique` takes an array, removes any duplicate values and returns the array.
+var unique = function(arr) {
+  arr.sort();
+  var newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+     if (arr[i] !== arr[i-1]) {      
+             newArray.push(arr[i]);
+     }  
+  }
+  return newArray;
+};
+
+// `extend` takes two objects and copies the properties of the first object on to the second. It does not return anything.
+var obj2 = {};
+var extend = function(obj, obj2) {
+  for (var key in obj) {
+        if (typeof obj[key] === 'string') {
+        obj2[key] = "";
+      }
+        else {
+        obj2[key] = [];
+      }
+    }
+  console.log(obj2);
+  return false;
+};
 
 
+// 1a Welcome logger
+var welcomeMessage = function(obj) {
+  for (var key in obj) {
+    if (obj[key] === loggedIn.species) {
+    return ('Welcome, ', strCapitalizer(obj[key]));
+    }
+  }
+};
+
+var profileData = function(obj) {
+  var temp = '';
+  for (var key in obj) {
+    if (typeof obj[key] !== 'string') {
+        // console.log(key, ' is an array');
+        var arr = [obj[key]];
+        var temp3 = strCapitalizer(key) + ': ' + arrValuePrinter(arr) + ' ';
+        temp = temp + temp3 + ' ';
+    }
+    else {
+      var temp1 =  strCapitalizer(key);
+      var temp2 = strCapitalizer(obj[key]);  
+      temp = temp + temp1 + ': ' + temp2 + ', ';
+    }
+  }
+      return temp.trim();
+};
+
+// 1b. Create a function called `relationshipLogger` that takes an animal object and returns the relationship object if it contains one.
+var relationshipLogger = function(obj) {
+    if ( 'relationships' in obj ) {
+      return obj.relationships;
+    }
+    else {
+      console.log("You have no relationships :(");
+        return;
+    }
+};
+
+// 1b - status checker
+
+var statusChecker = function(loggedIn, obj) {
+    for (var i = 0; i<obj.relationships.friends.length; i++) {
+      if ( loggedIn.species === obj.relationships.friends[i] ){
+        return loggedIn.species + ' is a friend of ' + obj.species;
+      }
+      else {
+          for (var x = 0; x<obj.relationships.matches.length; x++) {
+          if ( loggedIn.species === obj.relationships.matches[i] ){
+            return loggedIn.species + ' is a match of ' + obj.species;
+          }
+         else {
+           return loggedIn.species + ' and ' + obj.species + ' have no relation yet.';
+        }
+      }
+    }
+  }
+};
